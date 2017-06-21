@@ -4,14 +4,14 @@ $(document).ready(function() {
     $("#save").click(function() {
         var fname = $("#fname").val();
         var sub = $("#sub").val();
-        var mark = $("#mark").val();
+        var date = $("#date").val();
 
         // var tblObj = {};
         // tblObj.fname = fname;
         // tblObj.sub = sub;
-        // tblObj.mark = mark;
+        // tblObj.date = date;
 
-        var tblObj = { fname: fname, sub: sub, mark: mark };
+        var tblObj = { fname: fname, sub: sub, date: date };
         tblRecord.push(tblObj);
         console.log(tblRecord);
         //convert us object to json string
@@ -20,7 +20,7 @@ $(document).ready(function() {
         createTableRow();
         $("#fname").val("");
         $("#sub").val("");
-        $("#mark").val("");
+        $("#date").val("");
     });
 });
 
@@ -30,12 +30,12 @@ function createTableRow() {
     for (var i = 0; i < tblRecord.length; i++) {
         var fname = tblRecord[i].fname;
         var sub = tblRecord[i].sub;
-        var mark = tblRecord[i].mark;
+        var date = tblRecord[i].date;
 
-        var tblrow = "<tr><td>" + 1 + "</td><td>" +
+        var tblrow = "<tr><td>" +
             fname + "</td><td>" +
             sub + "</td><td>" +
-            mark + "</td></tr>";
+            date + "</td></tr>";
         $("tbody").append(tblrow);
     }
 
