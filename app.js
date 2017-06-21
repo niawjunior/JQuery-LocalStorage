@@ -1,6 +1,6 @@
 var tblRecord = [];
 $(document).ready(function() {
-    // createTableRow();
+    createTableRow();
     $("#save").click(function() {
         var fname = $("#fname").val();
         var sub = $("#sub").val();
