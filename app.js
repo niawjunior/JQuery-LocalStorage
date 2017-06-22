@@ -1,4 +1,5 @@
 var tblRecord = [];
+
 $(document).ready(function() {
     createTableRow();
     $("#save").click(function() {
@@ -26,17 +27,23 @@ $(document).ready(function() {
 
 function createTableRow() {
     //convert json string to js object
-    tblRecord = JSON.parse(localStorage.tblData);
-    for (var i = 0; i < tblRecord.length; i++) {
-        var fname = tblRecord[i].fname;
-        var sub = tblRecord[i].sub;
-        var date = tblRecord[i].date;
+    try {
+        tblRecord = JSON.parse(localStorage.tblData);
+        $("tbody").empty();
+        for (var i = 0; i < tblRecord.length; i++) {
+            var fname = tblRecord[i].fname;
+            var sub = tblRecord[i].sub;
+            var date = tblRecord[i].date;
 
-        var tblrow = "<tr><td>" +
-            fname + "</td><td>" +
-            sub + "</td><td>" +
-            date + "</td></tr>";
-        $("tbody").append(tblrow);
+            var tblrow = "<tr><td>" +
+                fname + "</td><td>" +
+                sub + "</td><td>" +
+                date + "</td></tr>";
+            $("tbody").append(tblrow);
+        }
+
+    } catch (e) {
+        console.log('null');
     }
 
 }
