@@ -6,27 +6,19 @@ $(document).ready(function() {
         var fname = $("#fname").val();
         var sub = $("#sub").val();
         var date = $("#date").val();
-
-        // var tblObj = {};
-        // tblObj.fname = fname;
-        // tblObj.sub = sub;
-        // tblObj.date = date;
-
         var tblObj = { fname: fname, sub: sub, date: date };
         tblRecord.push(tblObj);
         console.log(tblRecord);
-        //convert us object to json string
-
+        //convert us object to json <string></string>
         localStorage.tblData = JSON.stringify(tblRecord);
         createTableRow();
-        $("#fname").val("");
-        $("#sub").val("");
-        $("#date").val("");
+
     });
 });
 
-function createTableRow() {
-    //convert json string to js object
+// function createTableRow(){}
+var createTableRow = function() {
+    //converst json string to js object
     try {
         tblRecord = JSON.parse(localStorage.tblData);
         $("tbody").empty();
@@ -41,6 +33,9 @@ function createTableRow() {
                 date + "</td></tr>";
             $("tbody").append(tblrow);
         }
+        $("#fname").val("");
+        $("#sub").val("");
+        $("#date").val("");
 
     } catch (e) {
         console.log('null');
